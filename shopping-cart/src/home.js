@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 function HomePage (props) {
@@ -7,7 +8,9 @@ function HomePage (props) {
         <div className="homeInner">
             <h1 className="homeFirstText">Are you ready for the future of cars?</h1>
             <h2 className="homeSecondText">Available now:  &nbsp; <div className="cyberTruck">Tesla Cybertruck</div></h2>
-            <button className="homeShopButton">SHOP</button>
+            <Link to="/productDisplay" >
+            <button className="homeShopButton"> SHOP </button>
+            </Link >
         </div>
     </div>
 }

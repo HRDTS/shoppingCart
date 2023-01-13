@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Tesla_logo from './img/Tesla_logo.png'
 
 function NavBar (props) {
@@ -8,19 +9,19 @@ function NavBar (props) {
         <nav >
             <ul className="navbarList">
                 <div className="logoAndTitle">
-                    <img className="logo" src={require('./img/Tesla_logo.png')}/>
+                    <Link to="/"><img className="logo" src={require('./img/Tesla_logo.png')}/></Link>
                     <li className="title">Powered by Solar, built for the future</li>
                 </div>
                 <div className="rightNavbar">
-                    <a href="" target={"_blank"} rel='noreferrer'>
+                    <Link to="/productDisplay">
                     <li>shop</li>
-                    </a>
-                    <a href="" target={"_blank"} rel='noreferrer'>
+                    </Link>
+                    <Link to="/productDisplay">
                     <li>search</li>
-                    </a>
-                    <a href="" target={"_blank"} rel='noreferrer'>
+                    </Link>
+                    <Link to="/productDisplay">
                     <li><img className="cart" src={require('./img/cart3.png')}/></li>
-                    </a>   
+                    </Link>   
                 </div>
     
             </ul>

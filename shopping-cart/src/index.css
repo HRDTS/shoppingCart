@@ -13,6 +13,7 @@ body {
 
 .navbar {
   height: 20vh;
+  background-color: black;
 }
 
 li {
@@ -163,13 +164,16 @@ a {
 
 .productGrid {
   display: grid;
-  grid-template-columns: 50px 50px;
-  grid-template-areas: 50px 50px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 1fr 1fr;
   gap: 100px;
 }
 
 .productFlex {
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .product {
@@ -185,5 +189,50 @@ a {
 .shoppingLayoutInside {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 9fr; 
+  grid-template-columns: 1fr 10fr 1fr; 
+  margin-top: 30px;
 }
+
+.outerProductDiv {
+  border: 1px solid black;
+  padding: 10px;  
+}
+
+.productImage {
+  display: block;
+  height: 230px;
+  width: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .2s ease;
+  background-color: #008CBA;
+}
+
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.container {
+  position: relative;
+}
+
+.productPageImage {
+  height: 600px;
+  width: auto;
+}
+
+.productPageImageAndText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} 
