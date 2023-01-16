@@ -13,11 +13,13 @@ body {
 
 .navbar {
   height: 20vh;
+  min-width: 80vw;
   background-color: black;
 }
 
 li {
   list-style: none;
+  margin: 0px 10px;
 }
 
 .navbarList {
@@ -29,7 +31,7 @@ li {
 }
 
 .App {
-  height: 100vh;
+  min-height: 80vh;
   width: 100vw;
   background-image: url('./img/teslaBackground.jpg');
   background-size: cover;
@@ -43,7 +45,7 @@ li {
 }
 
 .homePage {
-  height:100vh;
+  min-height: 100vh;
   width: 100vw;
   position: fixed;
   top: 20;
@@ -96,6 +98,7 @@ li {
 .cart {
   height: 50px;
   width: auto;
+  padding: 5px;
 }
 
 .rightNavbar {
@@ -164,8 +167,8 @@ a {
 
 .productGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: 1fr 1fr;
+  grid-template-columns: minmax(min-content, auto) minmax(min-content, auto);
+  grid-template-rows: 1fr 1fr;
   gap: 100px;
 }
 
@@ -194,6 +197,8 @@ a {
 }
 
 .outerProductDiv {
+  display: flex;
+  flex-direction: column;
   border: 1px solid black;
   padding: 10px;  
 }
@@ -202,6 +207,7 @@ a {
   display: block;
   height: 230px;
   width: auto;
+  z-index: 1;
 }
 
 .overlay {
@@ -236,3 +242,129 @@ a {
   flex-direction: column;
   align-items: center;
 } 
+
+.sidebarCatalogus{
+  color: black;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.description {
+  width: 25%;
+}
+
+.lowerHalfProductPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cartImages {
+  height: 100px;
+  width: auto;
+}
+
+#quantity {
+  min-width: 50px;
+  max-width: 75px;
+}
+
+.cartContent {
+  text-align: center;
+  font-size: xx-large;
+}
+
+.cartDiv {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid white;
+  border-top: 1px solid white; ;
+}
+
+
+
+#searchBar {
+  display: none;
+  height: 20px;
+  margin: 0px;
+}
+
+.exitSearch {
+  display: flex;
+  color: red;
+  font-size: large;
+  background-color: black;
+  border: 1px solid white;
+  height: 25px;
+  margin: 0px;
+  
+}
+
+#searchDiv {
+  display: flex;
+}
+
+#search {
+  cursor: pointer;
+}
+
+.shoppingCartPage {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-width: 80vw;
+  min-height: 80vh;
+  background-color: rgb(44, 44, 44);
+}
+
+.item { 
+  display: flex;
+  border-bottom: 1px solid red;
+  margin-bottom: 10px;
+}
+
+.imageAndTitle {
+  display: flex;
+  flex-direction: column;
+}
+
+.itemPrice {
+  display: flex;
+  justify-content: space-between;
+  min-width: 200px;
+}
+
+.buttonsAndInput {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.itemPrices {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+}
+
+.shoppingCartMiddle {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 0px 350px;
+  min-height: 100vh;
+}
+
+.totalPriceDiv, .totalQuantityDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.shoppingCartTitle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  border-bottom: 3px solid red;
+}

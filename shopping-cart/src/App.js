@@ -25,7 +25,6 @@ function App() {
   return (
     <div>
         <div className="App">
-      <NavBar/>
       <HomePage/>
       </div>
     </div>

@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Tesla_logo from './img/Tesla_logo.png'
+import { useState } from "react";
 
 function NavBar (props) {
-    // #e61134
+
+    const cart = props.cart
+
+    function consoleFunction () {
+        if(document.getElementById('searchBar').style.display !== 'flex') {
+            document.getElementById('searchBar').style.display = 'flex'
+        } else {
+            document.getElementById('searchBar').style.display = 'none'
+        }
+    }
+
     return <div className="navbar">
         
         <nav >
@@ -16,11 +27,18 @@ function NavBar (props) {
                     <Link to="/productDisplay">
                     <li>shop</li>
                     </Link>
-                    <Link to="/productDisplay">
-                    <li>search</li>
-                    </Link>
-                    <Link to="/productDisplay">
+                    <div>
+                    <li id="search" onClick={consoleFunction}>search</li>
+
+                    </div>
+                    <div id="searchDiv">
+                            <input type='text' id='searchBar'></input>
+                        </div>
+                    <Link to="/shoppingCart">
+                    <div className="cartDiv">
                     <li><img className="cart" src={require('./img/cart3.png')}/></li>
+                    <div className="cartContent">{cart.length}</div>
+                    </div>
                     </Link>   
                 </div>
     
