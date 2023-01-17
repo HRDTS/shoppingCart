@@ -7,8 +7,11 @@ function ShoppingPage (props) {
 
     const carInformation = props.carInformation
 
-    const [cars, setCars] = useState([])
-    const [model, setModel] = useState('Tesla Model S')
+
+    const cars = props.cars
+    const setCars = props.setCars
+    const model = props.model
+    const setModel = props.setModel
 
 
     useEffect(() => {

@@ -19,6 +19,7 @@ function Cart (props) {
 
     function changeQuantity (data, index) {
         if(data.target.value >= 0) {
+            console.log(data.target.value)
             let items = cart
             let item = {...cart[index]}
             item.quantity = data.target.value
@@ -50,9 +51,6 @@ function Cart (props) {
             removeEmptyObject()
     }
 
-    console.log(cart)
-    console.log('ababsaba')
-
     const cartContent = cart.map((element, index) => {
         return <div key={element.id} className='item'>
             <div className="imageAndTitle">
@@ -71,17 +69,19 @@ function Cart (props) {
 
             <div className="itemPrices">
             <div className="itemPrice"><p>Item Price:</p> {element.price}</div>
-            <div className="itemPrice"><p>Item Price Total:</p> { '€' +  (parseInt(element.price.slice(1).split('.').join('')) * element.quantity)} </div>
+            <div className="itemPrice"><p>Item Price Total:</p> { '€' +  (parseInt(element.price.slice(1)) * element.quantity)} </div>
             </div>
             </div>
     })
 
     const totalContent = () => {
+
         let price = 0
         let quantity = 0
+        console.log(quantity)
         cart.map((element) => {
-            price += (totalPrice + (parseInt(element.price.slice(1).split('.').join('')) * element.quantity)) 
-            quantity += element.quantity
+            price += (totalPrice + (parseInt(element.price.slice(1)) * element.quantity)) 
+            quantity += parseInt(element.quantity)
         })
         let priceWithEuroSign = '€' + price
         return <div className="totalPriceAndQuantityOuter">

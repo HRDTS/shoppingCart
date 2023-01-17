@@ -39,6 +39,9 @@ const RouteSwitch = () => {
         {title: 'Tesla Cybertruck', color: 'grey', price: '€50000', image: cybertruck, secondImage: cybertruck, id : 'CT'},
     ]
 
+    const [cars, setCars] = useState([])
+    const [model, setModel] = useState('Tesla Model S')
+
     const routeComponents = carInformation.map(({title, color, price, image, secondImage, id }) => {
         return <Route key={id} path={`/productPage/${id}`} element={<ProductPage title={title} color={color}
          price={price} image={image} secondImage={secondImage} id={id} cart={cart} setCart={setCart} />} />
@@ -46,11 +49,11 @@ const RouteSwitch = () => {
 
     return (
         <BrowserRouter>
-        <NavBar cart={cart} setCart={setCart}/>
+        <NavBar cart={cart} setCart={setCart} cars={cars} setCars={setCars} model={model} setModel={setModel}/>
             <Routes>
                 <Route path="/" element={<App/>} />
-                <Route path="/productDisplay" element={<ShoppingPage carInformation={carInformation}/>}/>
-                <Route path='/shoppingCart' element={<Cart cart={cart} setCart={setCart} />} />
+                <Route path="/productDisplay" element={<ShoppingPage carInformation={carInformation}  cars={cars} setCars={setCars} model={model} setModel={setModel}/>}/>
+                <Route path='/shoppingCart' element={<Cart cart={cart} setCart={setCart}/>} />
                 {routeComponents}
             </Routes>
         </BrowserRouter>

@@ -2,12 +2,6 @@ import React, { useState } from "react";
 import NavBar from "./navbar";
 import modelSRed from './img/modelSRed.jpeg'
 
-/*
-objective: click on ipsum to increment with one.
-
-
-*/
-
 function ProductPage (props) {
 
     const title = props.title
@@ -46,8 +40,7 @@ function ProductPage (props) {
         <div className="lowerHalfProductPage">
             <div className="description">Tesla designs and manufactures electric vehicles (electric cars and trucks), battery energy storage from home to grid-scale, solar panels and solar roof tiles, and related products and services. Tesla is one of the world's most valuable companies and is, as of 2022, the world's most valuable automaker.</div>
             <div className="productButtons">
-                <button onClick={consoles} className="homeShopButton">Add to cart (console)</button>
-                <button onClick={click} className="homeShopButton">Buy now (change cart)</button>
+                <button onClick={click} className="homeShopButton">Add to cart</button>
             </div>
         </div>
 

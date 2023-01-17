@@ -7,7 +7,7 @@ function ProductDisplay (props) {
 
     return <div className="productGrid">
             {cars.map(element => {
-                if(element.title === model) {
+                if(element.title.toLowerCase().replace(/\s/g, '') === model.toLowerCase().replace(/\s/g, '')) {
                     return     <div key={element.id} className="outerProductDiv">
                     <p>{element.title}</p>
                     <Link to={`/productPage/${element.id}`}>
@@ -22,7 +22,7 @@ function ProductDisplay (props) {
                     <p>{element.color}</p>
             
                 </div>
-                }
+                } 
             } 
         )}
     </div>
