@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import NavBar from "./navbar";
 
 function Cart (props) {
 
@@ -9,6 +8,10 @@ function Cart (props) {
 
     const cart = props.cart
     const setCart = props.setCart
+    const toggleCart = props.toggleCart
+    const setTogglePart = props.setToggleCart
+    const showCart = props.showCart
+    const funnyFunction = props.fnc
 
     function click () {
         console.log(cart)
@@ -47,12 +50,15 @@ function Cart (props) {
             removeEmptyObject()
     }
 
+    console.log(cart)
+    console.log('ababsaba')
+
     const cartContent = cart.map((element, index) => {
         return <div key={element.id} className='item'>
             <div className="imageAndTitle">
             {element.model} ({element.color}) <img className="cartImages" src={element.image}/>
             <div className="buttonsAndInput">
-                <button onClick={(data) => minus(data, index)} >-</button>
+                <button onClick={(data) => minus(data, index)}>-</button>
                 <input
                 onChange={(data) => changeQuantity(data, index)}
                 value={cart[index].quantity}
@@ -95,17 +101,28 @@ function Cart (props) {
          console.log(cart)
     }    
 
-
-
-    return <div className="shoppingCartPage">
-        <div className="shoppingCartMiddle">
-        <h1 className="shoppingCartTitle">Shopping Cart</h1>
-        <form>
-            {cartContent}
-        </form>
-        <div>{totalContent()}</div>
-        <button className="homeShopButton">Proceed to Payment</button>
+    function cartRendering () {
+        if(toggleCart) {
+            return <div className="cart-items">
+            <div className="shoppingCartPage">
+            <div className="upperSideShoppingCart">
+            <div></div>
+            <h1 className="shoppingCartTitle">Shopping Cart</h1>
+            <div className="closeCart" onClick={showCart}>X</div>
+            </div>
+            <form>
+                {cartContent}
+            </form>
+            <div>{totalContent()}</div>
+            <button className="homeShopButton">Proceed to Payment</button>
+            
         </div>
+        </div>
+        }
+    }
+
+    return <div>
+            {cartRendering()}
     </div>
 }
 

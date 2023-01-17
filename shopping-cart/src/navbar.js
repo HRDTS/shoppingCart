@@ -2,18 +2,32 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Tesla_logo from './img/Tesla_logo.png'
 import { useState } from "react";
+import Cart from "./shoppingCart";
 
 function NavBar (props) {
 
     const cart = props.cart
+    const setCart = props.setCart
+
+    const [toggleCart, setToggleCart] = useState(false)
 
     function consoleFunction () {
         if(document.getElementById('searchBar').style.display !== 'flex') {
             document.getElementById('searchBar').style.display = 'flex'
+            document.getElementById('search').style.border = '1px solid white'
+            document.getElementById('search').style.borderRadius = '10px'
         } else {
             document.getElementById('searchBar').style.display = 'none'
+            document.getElementById('search').style.border = '0px solid white'
+            document.getElementById('search').style.borderRadius = '0px'
         }
     }
+
+    const showCart = () => {
+        console.log('abdc')
+        toggleCart ? setToggleCart(false) : setToggleCart(true)
+    }
+
 
     return <div className="navbar">
         
@@ -34,12 +48,14 @@ function NavBar (props) {
                     <div id="searchDiv">
                             <input type='text' id='searchBar'></input>
                         </div>
-                    <Link to="/shoppingCart">
-                    <div className="cartDiv">
+
+                    <div className="cartDiv" onClick={showCart}>
                     <li><img className="cart" src={require('./img/cart3.png')}/></li>
                     <div className="cartContent">{cart.length}</div>
-                    </div>
-                    </Link>   
+
+                        <Cart cart={cart} setCart={setCart} setToggleCart={setToggleCart} toggleCart={toggleCart} showcart={showCart}/>
+                        </div>
+ 
                 </div>
     
             </ul>

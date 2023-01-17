@@ -21,6 +21,8 @@ import model3White2 from './img/model3White2.jpeg'
 import cybertruck from './img/cybertruck.jpg'
 import { useState } from "react";
 
+//
+
 const RouteSwitch = () => {
 
     const [cart, setCart] = useState([])
@@ -44,7 +46,7 @@ const RouteSwitch = () => {
 
     return (
         <BrowserRouter>
-        <NavBar cart={cart}/>
+        <NavBar cart={cart} setCart={setCart}/>
             <Routes>
                 <Route path="/" element={<App/>} />
                 <Route path="/productDisplay" element={<ShoppingPage carInformation={carInformation}/>}/>
